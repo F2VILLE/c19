@@ -6,12 +6,10 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:47:53 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/12 14:30:21 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:06:24 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -43,11 +41,12 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, &base[nbr % base_l], 1);
 	}
 }
-
+/* #include <stdio.h>
+#include <stdlib.h>
 int	main(int argc, char *argv[])
 {
 	if (argc < 2)
 		return (1);
 	ft_putnbr_base(atoi(argv[1]), argv[2]);
 	return (0);
-}
+}*/
