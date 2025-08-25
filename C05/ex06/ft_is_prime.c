@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 04:31:16 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/14 04:46:54 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/26 01:44:47 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_is_prime(int nb)
@@ -16,9 +16,9 @@ int	ft_is_prime(int nb)
 	if (nb <= 1)
 		return (0);
 	i = 2;
-	while ((i * i) <= nb)
+	while (i <= nb / i)
 	{
-		if ((nb / i) * i == nb)
+		if (nb % i == 0)
 			return (0);
 		i++;
 	}

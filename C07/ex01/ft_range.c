@@ -1,48 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 21:01:06 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/21 13:51:52 by fdeville         ###   ########.fr       */
+/*   Created: 2025/08/21 11:44:08 by fdeville          #+#    #+#             */
+/*   Updated: 2025/08/21 13:51:04 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_strlen(char *s)
+int	ft_abs(int n)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
-char	*ft_strdup(char *src)
+int	ft_delta(int a, int b)
 {
-	int		i;
-	char	*dest;
+	return (ft_abs(a - b));
+}
 
-	i = ft_strlen(src);
-	dest = malloc((i + 1) * sizeof(char));
+int	*ft_range(int min, int max)
+{
+	int	d;
+	int	i;
+	int	*arr;
+
+	if (min >= max)
+		return (NULL);
+	d = ft_delta(min, max);
 	i = 0;
-	while (src[i])
+	arr = malloc((d + 1) * sizeof(int));
+	while (i < d)
 	{
-		dest[i] = src[i];
+		arr[i] = min + i;
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (arr);
 }
 /* #include <stdio.h>
-#include <string.h>
 int	main(void)
 {
-	char	*s = "test abcdef";
+	int	i;
+	int 	min;
+	int	max;
 
-	printf("ft: %s\nnat: %s\n", ft_strdup(s), strdup(s));
+	i = 0;
+	min = -4;
+	max = 8;
+	int	*arr = ft_range(min, max);
+	while (i < ft_delta(min, max))
+	{
+		printf("%d ", arr[i]);
+		i++;
+	}
 	return (0);
 }*/
