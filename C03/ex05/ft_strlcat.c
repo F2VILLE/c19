@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 22:21:45 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/14 20:17:20 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:29:42 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 unsigned int	ft_strlen(char *str)
@@ -28,15 +28,15 @@ int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 	i = 0;
 	len = ft_strlen(dest);
-	while (src[i] != '\0' && i < size)
+	while (src[i] != '\0' && (len + i) < size - 1)
 	{
 		dest[len + i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	dest[len + i] = '\0';
 	return (len + i);
 }
-/* #include <stdio.h>
+#include <stdio.h>
 #include <bsd/string.h>
 
 int	main(void)
@@ -50,4 +50,4 @@ int	main(void)
 
 	printf("%s\n\n", a);
 	printf("%s\n\n", c);
-}*/
+}

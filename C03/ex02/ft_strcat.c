@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:52:18 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/07 21:59:51 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/25 16:33:52 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_strlen(char *str)
@@ -15,9 +15,7 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -33,6 +31,7 @@ char	*ft_strcat(char *dest, char *src)
 		dest[len + i] = src[i];
 		i++;
 	}
+	dest[len + i] = '\0';
 	return (dest);
 }
 /*#include <stdio.h>

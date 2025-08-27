@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/14 04:22:34 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/26 01:43:55 by fdeville         ###   ########.fr       */
+/*   Created: 2025/08/21 13:53:11 by fdeville          #+#    #+#             */
+/*   Updated: 2025/08/21 13:54:56 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_sqrt(int nb)
-{
-	int	i;
 
-	i = 0;
-	while (i < nb / i)
-		i++;
-	if (i * i == nb)
-		return (i);
-	return (0);
-}
-/* #include <stdio.h>
-int	main(void)
-{
-	printf("%d\n", ft_sqrt(36));
-	printf("%d\n", ft_sqrt(0));
-	printf("%d\n", ft_sqrt(1));
-	printf("%d\n", ft_sqrt(81));
-	return (0);
-} */
+

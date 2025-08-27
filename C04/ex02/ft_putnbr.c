@@ -3,87 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
+/*   By: fdeville <fdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 17:02:41 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/11 20:44:00 by fdeville         ###   ########.fr       */
+/*   Created: 2025/08/22 16:26:00 by fdeville          #+#    #+#             */
+/*   Updated: 2025/08/25 22:02:32 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int	ft_abs(int nb)
+#include <unistd.h>
+#include <limits.h>
+
+void	ft_putchar(char c)
 {
-	if (nb < 0)
-		return (-nb);
-	return (nb);
+	write(1, &c, 1);
 }
 
-int	ft_special_cases(int nb)
+int	ft_spec_case(int *n)
 {
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (1);
-	}
-	if (nb == 2147483647)
+	if (*n == INT_MAX)
 	{
 		write(1, "2147483647", 10);
 		return (1);
 	}
-	if (nb == -2147483647)
+	if (*n == INT_MIN)
 	{
-		write(1, "-2147483647", 10);
+		write(1, "-2147483648", 11);
 		return (1);
 	}
-	if (nb == 0)
+	if (*n == 0)
 	{
-		write(1, "0", 1);
+		ft_putchar('0');
 		return (1);
 	}
-	if (nb != (int)nb)
-		return (1);
+	if (*n < 0)
+	{
+		ft_putchar('-');
+		*n = -(*n);
+	}
 	return (0);
 }
 
 void	ft_putnbr(int nb)
 {
-	char	buffer[11];
-	int		mult;
-	int		idx;
+	char	res[12];
+	char	rev[12];
+	int		i;
+	int		j;
 
-	idx = 0;
-	mult = 1;
-	if (ft_special_cases(nb))
+	i = 0;
+	j = 0;
+	if (ft_spec_case(&nb))
 		return ;
-	while (mult < ft_abs(nb))
+	while (nb > 0)
 	{
-		buffer[idx] = '0' + ((ft_abs(nb) / mult) % 10);
-		mult *= 10;
-		idx++;
+		rev[j] = ((int)(nb % 10)) + '0';
+		nb = nb / 10;
+		j++;
 	}
-	if (nb < 0)
-		buffer[idx++] = '-';
-	idx--;
-	while (idx >= 0)
+	j--;
+	while (j >= 0)
 	{
-		write(1, &buffer[idx], 1);
-		idx--;
+		res[i] = rev[j];
+		j--;
+		i++;
 	}
+	write(1, res, i);
 }
-/*#include <stdio.h>
-int	main(void)
+/*
+int    main(void)
 {
-	ft_putnbr(1234);
-	write(1, "\n", 1);
 	ft_putnbr(42);
-	write(1, "\n", 1);
-	ft_putnbr(-19);
-	write(1, "\n", 1);
-	ft_putnbr(-2147483648);
-	write(1, "\n", 1);
-	ft_putnbr(0);
-	write(1, "\n", 1);
-	ft_putnbr(2147483647);
-	write(1, "\n", 1);
+	ft_putchar('\n');
+	ft_putnbr(INT_MAX);
+	ft_putchar('\n');
+	ft_putnbr(INT_MIN);
 	return (0);
 }*/

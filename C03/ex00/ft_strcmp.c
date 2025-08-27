@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 08:24:48 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/07 08:47:34 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/25 16:12:11 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_strcmp(char *s1, char *s2)
@@ -18,15 +18,11 @@ int	ft_strcmp(char *s1, char *s2)
 	{
 		if (s1[i] != s2[i])
 		{
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		}
 		i++;
 	}
-	if (s1[i] != s2[i])
-	{
-		return (s1[i] - s2[i]);
-	}
-	return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 /*#include <string.h>
 #include <stdio.h>
