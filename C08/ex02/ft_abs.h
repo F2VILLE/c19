@@ -6,7 +6,7 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 03:39:08 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/15 03:44:13 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/27 19:10:03 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define ABS(Value) ((Value >= 0) ? Value : -Value)
+#define ABS(Value) ((Value < 0) * -Value) + ((Value >= 0) * Value)

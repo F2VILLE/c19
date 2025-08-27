@@ -1,27 +1,86 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 21:37:40 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/27 20:39:07 by fdeville         ###   ########.fr       */
+/*   Created: 2025/08/27 18:46:08 by fdeville          #+#    #+#             */
+/*   Updated: 2025/08/27 20:41:35 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_stock_str.h"
-#include <stdlib.h>
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+#include "ft_stock_str.h"
+
+int	ft_strlen(char *s)
 {
 	int	l;
 
 	l = 0;
-	while (str[l] != '\0')
+	while (s[l])
 		l++;
 	return (l);
 }
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	int	l;
+
+	l = ft_strlen(s);
+	write(1, s, l);
+}
+
+void	ft_putnbr(int n)
+{
+	int	div;
+	int	i;
+	int	neg;
+
+	div = 1;
+	neg = 0;
+	if (n < 0)
+	{
+		neg = 1;
+		n = -n;
+	}
+	while (n / div > 0)
+		div *= 10;
+	div /= 10;
+	if (neg)
+		ft_putchar('-');
+	i = 0;
+	while (div > 0)
+	{
+		ft_putchar('0' + ((n / div) % 10));
+		div /= 10;
+	}
+}
+
+void	ft_show_tab(struct s_stock_str *par)
+{
+	int	i;
+
+	i = 0;
+	while (par[i].str)
+	{
+		ft_putstr(par[i].str);
+		ft_putstr("\n");
+		ft_putnbr(par[i].size);
+		ft_putstr("\n");
+		ft_putstr(par[i].copy);
+		ft_putstr("\n");
+		i++;
+	}
+}
+
+/* DEBUG
+#include <stdlib.h>
 char	*ft_strncpy(char *dest, char *src, int size)
 {
 	int	i;
@@ -59,34 +118,14 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		ft_strncpy(arr[i].copy, av[i], len);
 		i++;
 	}
-	arr[ac].str = 0;
 	return (arr);
-}
-/*
-void	print_stock_str(struct s_stock_str av)
-{
-	printf("Size : %d\nString : %s (%p)\nCopy : %s (%p)\n", 
-	av.size,
-	av.str,
-	&av.str,
-	av.copy,
-	&av.copy
-	);
 }
 
 int	main(int ac, char *av[])
 {
 	struct s_stock_str	*arr;
-	int			i;
 
 	arr = ft_strs_to_tab(ac, av);
-	printf("arr created");	
-	i = 0;
-	while (i < ac)
-	{
-		print_stock_str(arr[i]);
-		i++;
-	}
-
+	ft_show_tab(arr);	
 	return (0);
 }*/

@@ -6,18 +6,18 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 04:22:34 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/26 01:43:55 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/27 01:01:24 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_sqrt(int nb)
 {
-	int	i;
+	long	i;
 
-	i = 0;
-	while (i < nb / i)
+	i = 1;
+	while (i < (nb / i))
 		i++;
 	if (i * i == nb)
-		return (i);
+		return ((int)i);
 	return (0);
 }
 /* #include <stdio.h>
