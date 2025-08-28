@@ -6,11 +6,9 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 22:58:30 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/27 23:10:56 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:53:47 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

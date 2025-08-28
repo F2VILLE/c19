@@ -6,11 +6,9 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 23:04:23 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/27 23:11:29 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:54:01 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_swap(int *a, int *b)
 {

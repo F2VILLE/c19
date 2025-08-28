@@ -6,11 +6,9 @@
 /*   By: fdeville <fdeville@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 22:57:54 by fdeville          #+#    #+#             */
-/*   Updated: 2025/08/27 23:11:13 by fdeville         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:53:53 by fdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_strlen(char *str)
 {
